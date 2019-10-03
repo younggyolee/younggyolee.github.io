@@ -1,5 +1,6 @@
-wbody{
+body{
     font-family: sans-serif;
+
 }
 
 .container{
@@ -8,6 +9,7 @@ wbody{
     width: 800px;
     /* background-color: yellow; */
     border: 3px solid black;
+    box-sizing: border-box;
 }
 
 .selectedDateClass{
@@ -77,22 +79,29 @@ wbody{
 
 /* Container for the whole todo list  */
 .todoContainer{
+    box-sizing: border-box;
     position: absolute;
-    top: 420px;
-    width: 800px;
-/*    height: 1000px;*/
-
-/* Let's put gradation later like vue JS*/
-    border: 3px solid black;
+    left: 75px;
+    top: 408px;
+    width: 650px;
+    border: 2px solid LightGrey;
+  /*gradation shadow effect*/
+    /* box-shadow: 0px 1px 5px 0.1px #888888; */
+    background-color: Ivory;
+    font-family: 'Courier New', Courier, monospace;
+    color: Grey;
 }
 
 /* date & month row on top of todo list */
+/* NOT USED ANYMORE - TO BE DELETED LATER */
 .todoDateContainer{
-    /*width : 80%;*/
+    display: none;
+    box-sizing: content-box;
     margin: auto;
-    background-color: red;
+    border-bottom: 2px solid LightGrey;
+    /* background-color: red; */
 }
-
+/* NOT USED ANYMORE - TO BE DELETED LATER */
 #todoDate{
     position: relative;
     font-size: 20px;
@@ -100,16 +109,70 @@ wbody{
 }
 
 
+
 .todoInputContainer {
     position: relative;
     margin: auto;
     text-align: left;
+    border-bottom: 2px solid LightGrey;
 /*    background-color: aqua;
 */}
 
+/* image for down arrow (clear all button) */
+.down{
+  height: 20px;
+  display: inline-block;
+  position: relative;
+  margin-left: 20px;
+  margin-right: 5px;
+  filter: opacity(30%);
+
+}
+
+.down:hover{
+  filter: opacity(100%);
+}
+
+.downContainer input:checked ~ .down {
+  filter: opacity(100%);
+}
+
+
+
+
+
+/* text input area */
+#mainInput {
+  /* for removing blue outline when focused for typing */
+  outline: none;
+  position: relative;
+  box-sizing: content-box;
+  border: none;
+  background: transparent;
+  width: 500px;
+  height: 60px;
+  font-size: 30px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#addButton {
+display: inline-block;
+height: 40px;
+position: relative;
+top: 10px;
+filter: opacity(50%);
+}
+
+#addButton:hover {
+filter: opacity(100%);
+}
+
+
+
+
 
 /* todo list main area */
-.buttonContainer {
+li .buttonContainer {
   box-sizing: content-box;
   position: relative;
   display: inline-block;
@@ -119,22 +182,21 @@ wbody{
   width: 30px;
   height: 30px;
   top: 5px;
-  margin-left: 5px;
-
-  cursor: pointer;
+  margin-left: 20px;
+  margin-right: 12px;
 }
 
-.buttonContainer:hover {
+li .buttonContainer:hover {
   background-color: WhiteSmoke;
   border-color: LightGrey;
 }
 
 /* hide the clear button */
-#clearButton {
+#clearButton, .doneButton {
   display: none;
 }
 
-.buttonContainer input:checked ~ .checkmark {
+li .buttonContainer input:checked ~ .checkmark {
   box-sizing: content-box;
   position: absolute;
   left: 9px;
@@ -152,69 +214,90 @@ wbody{
 }
 
 
-/* text input area */
-#mainInput{
-    position: relative;
-    border: none;
-    background: transparent;
-    width: 500px;
-    height: 60px;
-    font-size: 30px;
-}
-
-
-
-/* each item area */
-
-.tick{
+/* todo items area */
+.itemContainer{
   position: relative;
-  display: inline-block;
-  height: 20px;
 }
-
 
 ul {
-  list-style-type: none;
+  width: 100%;
   margin: 0;
   padding: 0;
-  /* margin : 100; */
 }
 
-ul li {
-  box-sizing: border-box;
+ul li{
+  list-style: none;
+  width: 100%;
+
+  box-sizing: content-box;
   text-align: left;
-  /* cursor: pointer; */
   position: relative;
-  /* padding: 5px 8px 12px 40px; */
-  background: transparent;
-  font-size: 30px;
-  transition: 0.1s;
-  background-color: orange;
-  padding-top: 20px;
 
-  height: 60px;
+
+  font-size: 30px;
+  word-wrap: break-word;
+
+/*  line-height: 30px;*/
+  padding-bottom: 10px;
+  margin: 0px 0;
+  border-top: 1px solid LightGrey;
+
 }
+
+/*for done items on the list*/
+.doneItem .itemContent{
+  color: LightGrey;
+  text-decoration: line-through;
+}
+
+ul .itemContent{
+  /*removing blue outline when focused*/
+  outline: none;
+
+  /* margin-bottom: 2px; */
+  /* background: coral; */
+}
+
+ul .buttonContainer{
+  top: 8px;
+
+}
+
+
+.itemContent{
+/*  position: absolute;*/
+  display: inline-block;
+  color: black;
+  width: 80%;
+  top: 12px;
+  padding-bottom: 10px;
+}
+
+
 
 /* ul li:nth-child(odd) {
   background: transparent;
 } */
 
 .deleteButton{
-  position: absolute;
   display: inline-block;
-  right: 20%;
-  font-size: 100%;
+  position: relative;
+  top: 10px;
+  margin-left: 3px;
+  /* height: 100%; */
+  /* right: 20%; */
+  font-size: 50px;
   cursor: default;
   visibility: hidden;
-  filter: contrast(50%);
+  filter: opacity(30%);
 }
 
 ul li:hover > .deleteButton{
-  visibility: visible
+  visibility: visible;
 }
 
 .deleteButton:hover{
-  filter: contrast(100%);
+  filter: opacity(100%);
 }
 
 
@@ -223,7 +306,32 @@ ul li:hover > .deleteButton{
 /* last line : mode buttons */
 .modeButtonContainer{
   position: relative;
-  padding-top: 5px;
-  background: red;
+  height: 30px;
+  padding-top: 10px;
   font-size: 18px;
+  border-top: 2px solid LightGrey;
+}
+
+
+/* for a mode button that's selected (all / active / completed )*/
+
+.modeSelected{
+  margin: 5px;
+  border: 3px solid LightCoral;
+}
+
+.modeUnselected{
+  margin: 5px;
+  border: 3px solid transparent;
+}
+
+.modeUnselected:hover{
+  border: 3px solid MistyRose;
+}
+
+/* for spacing between elements in mode buttons */
+#leftItemsCounter{
+  letter-spacing: 0.01em;
+  margin-left: 10px;
+  margin-right: 60px;
 }

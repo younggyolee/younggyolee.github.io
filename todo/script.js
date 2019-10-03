@@ -255,8 +255,10 @@ function todoLoad () {
     document.getElementById("clearButton").checked = false;
 
 
-    // mark date is clicked if selected date is on the month
-
+    // Visually turn on 'All' list button
+    modeButtonInit();
+    document.getElementById("allButton").classList.add("modeSelected");
+    document.getElementById("allButton").classList.remove("modeUnselected");
 
 
     // This displays todo list items for the clicked date
@@ -337,7 +339,9 @@ function todoRefresher () {
         var temp = document.createElement("li");
 
         //done button
-        temp.innerHTML = "<input type='checkbox' class = 'doneButton'>";
+        // temp.innerHTML = "<input type='checkbox' class = 'doneButton'>";
+
+        temp.innerHTML = '<label class="buttonContainer"> <input type="checkbox" class="doneButton"><span class="checkmark"></span>';
 
         //add item content text
         var spanContent = document.createElement("SPAN");
@@ -357,9 +361,7 @@ function todoRefresher () {
 
 
         if (itemStatus == "completeList"){
-            // add visual elements for done items
-            temp.style.textDecoration = "line-through";
-            temp.style.color = "gray";
+            temp.classList.add("doneItem");
             temp.getElementsByClassName('doneButton')[0].checked = true;
         }
 
@@ -371,7 +373,7 @@ function todoRefresher () {
         temp.getElementsByClassName("doneButton")[0].addEventListener("click", doneFunc);
 
         function doneFunc(event) {
-            var itemId = event.target.parentElement.id;
+            var itemId = event.target.parentElement.parentElement.id;
             var doneStatus = todoDataBase[clickedDateStr][itemId][0];
             // // Change the itemStatus of an item (incomplete > complete)
             if (todoDataBase[clickedDateStr][itemId][0] === "incompleteList"){
@@ -466,21 +468,50 @@ function makeTwoDigits (x) {
 // These are for buttons to change lists (all / incomplete / complete)
 document.getElementById("allButton").addEventListener("click", function(){
     displayedList = "allList"
+    // For mode buttons update on the bottom of Todo list
+    modeSelected(displayedList);
+    // Refresh todo list items
     todoRefresher();
 });
 
 document.getElementById("incompleteButton").addEventListener("click", function(){
     displayedList = "incompleteList"
+    // For mode buttons update on the bottom of Todo list
+    modeSelected(displayedList);
+    // Refresh todo list items
     todoRefresher();
 });
 
 document.getElementById("completeButton").addEventListener("click", function(){
     displayedList = "completeList"
+    // For mode buttons update on the bottom of Todo list
+    modeSelected(displayedList);
+    // Refresh todo list items
     todoRefresher();
 });
 
+function modeButtonInit(mode) {
+    for (var i = 0; i < 3; i++){
+        document.getElementsByClassName("modeButtons")[i].classList.remove("modeSelected");
+        document.getElementsByClassName("modeButtons")[i].classList.add("modeUnselected");
+    }
+}
 
-
-
+// For visual of mode buttons on the bottom of Todo list
+function modeSelected(mode) {
+    modeButtonInit();
+    if (mode === "allList") {
+        document.getElementById("allButton").classList.add("modeSelected");
+        document.getElementById("allButton").classList.remove("modeUnselected");
+    }
+    else if (mode === "completeList") {
+        document.getElementById("completeButton").classList.add("modeSelected");
+        document.getElementById("completeButton").classList.remove("modeUnselected");
+    }
+    else if (mode === "incompleteList") {
+        document.getElementById("incompleteButton").classList.add("modeSelected");
+        document.getElementById("incompleteButton").classList.remove("modeUnselected");
+    }
+}
 
 //change all "itemStatus" into boolean

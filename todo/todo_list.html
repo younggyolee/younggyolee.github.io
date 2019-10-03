@@ -89,19 +89,24 @@
         </div>
 
         <!-- to do list -->
+
+        <!-- First row = date & month -->
         <div class = "todoContainer">
             <div class = "todoDateContainer">
                 <span id = "todoDate"></span>
             </div>
 
+            <!-- clear button !-->
             <div class = "todoInputContainer">
-                <label class="buttonContainer">
+                <label class="downContainer">
                     <input type="checkbox" id="clearButton">
-                    <span class="checkmark"></span>
+                    <img src="down.png" class="down">
                 </label>
-                <input type="text" id="mainInput" placeholder="What needs to be done?" autofocus>
-                <span id="addButton">Add</span>
                 
+                <input type="text" id="mainInput" placeholder="What needs to be done?" autofocus>
+                <img src="add.png" id="addButton">
+                
+
             </div>
             <div class = "itemContainer">
                 <ul id = "todoList">
@@ -109,9 +114,9 @@
             </div>
             <div class = "modeButtonContainer">
                 <span id="leftItemsCounter"></span>
-                <button type="button" id="allButton">All</button>
-                <button type="button" id="incompleteButton">Active</button>
-                <button type="button" id="completeButton">Completed</button>
+                <span class="modeButtons" id="allButton">All</span>
+                <span class="modeButtons" id="incompleteButton">Active</span>
+                <span class="modeButtons" id="completeButton">Completed</span>
             </div>
 
         </div>

@@ -1,0 +1,132 @@
+html, body {
+  box-sizing: border-box;
+  background-color: ivory;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.content {
+  margin-bottom: 200px;
+}
+
+#controlBarContainer {
+  // background-color: yellow;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  box-sizing: border-box;
+  background-color: transparent;
+  font-size: 30px;
+  border: 1px solid transparent;
+  margin: 20px;
+}
+
+.buttons:hover {
+  cursor: pointer;
+  opacity: 0.7 !important;
+}
+
+#numInputArea {
+  margin-bottom: 40px;
+}
+
+#numInputContainer {
+
+  // background-color: coral;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#numInput {
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: grey;
+  padding: 2px;
+
+}
+
+#sizeInputContainer {
+  text-align: center;
+  margin-bottom: 20px;
+  // background-color: orange;
+}
+
+#sizeSliderContainer {
+  display: inline-block;
+  width: 40%;
+  // background-color: crimson;
+}
+
+#barsContainer {
+  // border: 1px solid black;
+  box-sizing: border-box;
+  position: relative;
+  text-align: center;
+  height: 500px;
+}
+
+.bar {
+  text-align: center;
+}
+
+.barNum {
+  display: block;
+  color: white;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size : 20px;
+}
+
+#speedInputContainer {
+  text-align: center;
+}
+
+#speedInput {
+  width: 20%;
+}
+
+#sizeInput {
+  width: 50%;
+}
+
+
+#speedSliderContainer {
+  padding: 30px;
+  text-align: center;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 15px;
+  border-radius: 5px;  
+  background: lightgrey;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%; 
+  background: DarkOliveGreen;
+  cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb:hover {
+  opacity: 0.7
+}
+
+.slider::-moz-range-thumb:hover {
+  opacity: 0.7
+}

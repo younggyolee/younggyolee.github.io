@@ -1,19 +1,10 @@
-// Load application styles
-// import 'styles/index.less';
-
-// ================================
-// START YOUR APP HERE
-// ================================
-
-console.log('여기서 작업하세요!');
-
 function container () {
   let isActive = true;
 
   function getSpeedInput() {
     let speed = Math.pow(2, document.getElementById("speedInput").value);
     document.getElementById("showSpeedInput").innerText = 'x' + speed;
-    let interval = 250 / speed;
+    let interval = 256 / speed;
     return interval;
   }
 
@@ -374,7 +365,7 @@ function container () {
       const input = document.getElementById("numInput").value;
       const nums = input.split(",");    
       
-      if (nums.length < 5 || 10 < nums.length) {
+      if (nums.length < 5 || 100 < nums.length) {
         document.getElementById('numInput').style.border = "1px solid red";
         return false;
       }
@@ -482,7 +473,7 @@ function container () {
     animator(result, 0, result.length, interval);
   }
   inputControl();
-  setDefaultState(10);
+  setDefaultState(50);
 }
 
 container();

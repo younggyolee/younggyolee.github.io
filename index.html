@@ -4,24 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="style.css">
-  <title><%= htmlWebpackPlugin.options.title %></title>
+  <title>Younggyo - Algorithm Visualiser</title>
 </head>
 <body>
   <div class="content">
     <div id="controlBarContainer">
       <button class="buttons algorithmButtons" id="bubbleSortButton">Bubble Sort</button>
       <button class="buttons algorithmButtons" id="mergeSortButton">Merge Sort</button>|
-      <button id="startButton" class="buttons">Start</button>
       <button id="resetButton" class="buttons">Reset</button>
     </div>
     
     <div id="numInputArea">
       <div id="numInputContainer">
         <input type="text" id="numInput" size="30" style="font-size: 20pt; text-align: center" autofocus>
+        <button id="startButton" class="buttons">Start</button>
       </div>
       <div id="sizeInputContainer">
         <div id="sizeSliderContainer">
-        Less  <input type="range" min="5" max="10" value="2" class="slider" id="sizeInput"> More
+        Less  <input type="range" min="5" max="100" value="2" class="slider" id="sizeInput"> More
         </div>
       </div>
     </div>
